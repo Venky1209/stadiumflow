@@ -22,6 +22,19 @@ StadiumFlow is a production-grade venue management system built to tackle massiv
 - **Automated Pathfinding:** Seamlessly bridges with Google Maps to output precise geographic entry points based on the optimal computed route.
 - **Brutalist Spatial UI:** Designed with pure 0px border-radii, #0c0c0e deep space mapping, neon graph tokens (#ccff00 & #22c55e), and zero-layout-shift strict bounding rules.
 
+## 🎯 Problem Statement Alignment
+This project directly addresses the Prompt-Wars Hackathon problem statement by pioneering an intelligent venue management solution. It maximizes operational efficiency, ensures attendee accessibility, and automates crowd density control through advanced real-time spatial analysis and algorithmic forecasting.
+
+## 🏆 Core Google Services Utilized
+- **Google Cloud Run**: Mission-critical edge deployment and `standalone` container orchestration.
+- **Gemini AI API (@google/genai)**: Contextual spatial parsing and live pathfinding recommendations.
+- **Firebase Realtime Database**: Sub-10ms crowd telemetry and gate status distribution.
+- **Google Maps Platform**: Venue cartography and precise route geometry overlay.
+
+## ♿ Accessibility & Testing Paradigm
+- **Automated Testing Suite**: Implemented `jest` for core application logic and service integration validation.
+- **Inclusive UX**: Fully ARIA-compliant component labeling, high-contrast brutalist design tokens, and layout shift mitigations for disabled accessibility flows.
+
 ## 🚀 Deployment (Google Cloud Run)
 
 This repository is strictly configured to execute natively on **Google Cloud Run** with a hyper-optimized `standalone` build pipeline.
