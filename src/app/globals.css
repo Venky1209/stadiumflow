@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0c0c0e;
+  --surface: #111114;
+  --surface-raised: #18181b;
+  --border: #232328;
+  --text: #e4e4e7;
+  --text-muted: #71717a;
+  --text-dim: #3f3f46;
+  --accent: #ccff00;
+  --accent-text: #0c0c0e;
+  --good: #22c55e;
+  --warn: #f59e0b;
+  --bad: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+}
+
+/* Clean Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Routing animation */
+@keyframes route-scan {
+  0% { width: 0%; }
+  50% { width: 100%; }
+  100% { width: 100%; }
+}
+@keyframes route-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes ticker-slide {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes val-update {
+  0% { transform: scale(1); filter: brightness(1) drop-shadow(0 0 0 rgba(204,255,0,0)); color: var(--text); }
+  30% { transform: scale(1.15); filter: brightness(1.3) drop-shadow(0 0 12px rgba(204,255,0,0.6)); color: var(--accent); }
+  100% { transform: scale(1); filter: brightness(1) drop-shadow(0 0 0 rgba(204,255,0,0)); color: inherit; }
+}
+.animate-val-update {
+  animation: val-update 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  display: inline-block;
+}
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out both;
+}
+.animate-fade-in-right {
+  animation: fade-in-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-ticker {
+  animation: ticker-slide 0.3s ease-out both;
+}
