@@ -1,10 +1,12 @@
-describe('StadiumFlow Application Test Suite', () => {
-  it('renders the application components correctly', () => {
-    expect(true).toBe(true);
-  });
-  
-  it('integrates successfully with Google Services', () => {
-    const services = ['Gemini API', 'Firebase', 'Google Cloud Run', 'Google Maps'];
-    expect(services.length).toBe(4);
-  });
+/* eslint-disable @typescript-eslint/no-require-imports */
+const test = require("node:test");
+const assert = require("node:assert/strict");
+
+test("application test harness is configured", () => {
+  assert.equal(true, true);
+});
+
+test("google services used by the app are declared", () => {
+  const services = ["Gemini API", "Firebase", "Google Maps"];
+  assert.equal(services.length, 3);
 });

@@ -135,7 +135,7 @@ export function useGeminiChat(venueState: VenueState | null) {
         };
 
         setMessages((prev) => [...prev, assistantMsg]);
-      } catch (err) {
+      } catch {
         // Don't show error UI — just use the smart fallback silently
         setError(null);
 

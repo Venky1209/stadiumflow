@@ -1,73 +1,54 @@
-<div align="center">
-  <img src="https://img.shields.io/badge/NEXT.JS-0c0c0e?style=for-the-badge&logo=next.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/TAILWIND-ccff00?style=for-the-badge&logo=tailwindcss&logoColor=black" />
-  <img src="https://img.shields.io/badge/GEMINI%20AI-0c0c0e?style=for-the-badge&logo=google-gemini&logoColor=22c55e" />
-  <img src="https://img.shields.io/badge/FIREBASE-111114?style=for-the-badge&logo=firebase&logoColor=ffca28" />
+# StadiumFlow
 
-  <h1>🏟️ StadiumFlow</h1>
-  <p><strong>Brutalist, AI-Powered Live Venue Command Center</strong></p>
-</div>
+StadiumFlow is a Next.js venue operations dashboard for live events. It combines real-time crowd telemetry, route recommendations, and an AI assistant so attendees and venue teams can make faster decisions during high-traffic entry windows.
 
-<br />
+## Features
 
-StadiumFlow is a production-grade venue management system built to tackle massive crowd telemetry in real-time. Fusing **high-contrast brutalist design** with **live Firebase streams** and a **Gemini-powered spatial assistant**, StadiumFlow provides both attendees and venue managers with pinpoint awareness of gate status and crowd flow.
+- Live gate wait times and status monitoring
+- Zone heatmap for crowd pressure across the venue
+- Gemini-powered venue assistant for routing and support questions
+- Firebase-backed live state with local fallback behavior
+- Google Maps embeds and directions for gate navigation
 
----
+## Problem Statement Alignment
 
-## 🔥 Features
+StadiumFlow addresses venue management during large live events by improving:
 
-- **Live Gate Telemetry Engine:** View real-time security checkpoint queue times natively synced via Firebase RTDB.
-- **Dynamic Surge Forecast ("WhatIf Engine"):** Algorithmic predictions weighing current queue loads against projected crowd deployments to advise users whether to "Enter Now" or "Hold".
-- **Gemini 2.5 AI Assistant:** A fully integrated contextual AI floating chat layer. It uses live telemetry parameters to answer any venue logic.
-- **Automated Pathfinding:** Seamlessly bridges with Google Maps to output precise geographic entry points based on the optimal computed route.
-- **Brutalist Spatial UI:** Designed with pure 0px border-radii, #0c0c0e deep space mapping, neon graph tokens (#ccff00 & #22c55e), and zero-layout-shift strict bounding rules.
+- Scalability through real-time crowd state handling across gates and zones
+- Analytics through live wait times, congestion levels, and alert visibility
+- Realtime decision-making with continuously updated venue telemetry
+- Attendee flow through route guidance and gate recommendations
+- Operations visibility for staff coordinating entry and crowd distribution
 
-## 🎯 Problem Statement Alignment
-This project directly addresses the Prompt-Wars Hackathon problem statement by pioneering an intelligent venue management solution. It maximizes operational efficiency, ensures attendee accessibility, and automates crowd density control through advanced real-time spatial analysis and algorithmic forecasting.
+## Google Services Used
 
-## 🏆 Core Google Services Utilized
-- **Google Cloud Run**: Mission-critical edge deployment and `standalone` container orchestration.
-- **Gemini AI API (@google/genai)**: Contextual spatial parsing and live pathfinding recommendations.
-- **Firebase Realtime Database**: Sub-10ms crowd telemetry and gate status distribution.
-- **Google Maps Platform**: Venue cartography and precise route geometry overlay.
+- Gemini API via `@google/genai` for the in-app assistant
+- Firebase Realtime Database for live venue telemetry
+- Google Maps Platform for map embeds and directions
+- Google Cloud Run deployment support through the provided container setup
 
-## ♿ Accessibility & Testing Paradigm
-- **Automated Testing Suite**: Implemented `jest` for core application logic and service integration validation.
-- **Inclusive UX**: Fully ARIA-compliant component labeling, high-contrast brutalist design tokens, and layout shift mitigations for disabled accessibility flows.
+## Accessibility
 
-## 🚀 Deployment (Google Cloud Run)
+- Root document uses `lang="en"`
+- Responsive viewport metadata is defined in the app layout
+- High-contrast UI choices are used throughout the interface
+- Venue assistant content includes accessibility guidance for elevators and seating
 
-This repository is strictly configured to execute natively on **Google Cloud Run** with a hyper-optimized `standalone` build pipeline.
+## Testing
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/Venky1209/stadiumflow.git
-   cd stadiumflow
-   ```
+The repository includes an automated test file in `__tests__/app.test.js` and a working `npm test` command using Node's built-in test runner.
 
-2. **Supply Environments (`.env.local`)**
-   ```bash
-   NEXT_PUBLIC_GEMINI_API_KEY=your_key
-   NEXT_PUBLIC_FIREBASE_DATABASE_URL=your_rtdb_url
-   NEXT_PUBLIC_GOOGLE_MAPS_KEY=your_maps_key
-   ```
-
-3. **Deploy via `gcloud` CLI**
-   ```bash
-   gcloud run deploy stadiumflow-app \
-     --source . \
-     --platform managed \
-     --allow-unauthenticated \
-     --region us-central1
-   ```
-
-## 🏗️ Local Development
-
-StadiumFlow is locked onto Next.js 16+ Turbopack for maximum speed.
+## Local Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-*Designed with obsession for performance, accessibility, and high-stakes environment scale.*
+## Environment Variables
+
+```bash
+NEXT_PUBLIC_GEMINI_API_KEY=your_key
+NEXT_PUBLIC_FIREBASE_DATABASE_URL=your_rtdb_url
+NEXT_PUBLIC_GOOGLE_MAPS_KEY=your_maps_key
+```

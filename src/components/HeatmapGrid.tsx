@@ -13,11 +13,13 @@ function zoneColor(pct: number): string {
 export default function HeatmapGrid() {
   const { venueState } = useVenue();
   const [scanOffset, setScanOffset] = useState(0);
+  const [uptimeTag, setUptimeTag] = useState('000000');
 
   // Add a slight jitter for the "live data stream" effect
   useEffect(() => {
     const interval = setInterval(() => {
       setScanOffset(Math.floor(Math.random() * 5));
+      setUptimeTag(Date.now().toString().slice(-6));
     }, 1500);
     return () => clearInterval(interval);
   }, []);
@@ -48,7 +50,7 @@ export default function HeatmapGrid() {
     <div className="flex flex-col items-center relative">
       {/* Live Data Overlays outside SVG */}
       <div className="absolute top-0 right-2 flex flex-col items-end gap-1">
-         <span className="text-[9px] font-mono text-[#00ff66] animate-pulse">UPT: {Date.now().toString().slice(-6)}</span>
+         <span className="text-[9px] font-mono text-[#00ff66] animate-pulse">UPT: {uptimeTag}</span>
          <span className="text-[9px] font-mono text-[#ccff00]">SYS.ACTIVE</span>
       </div>
 
